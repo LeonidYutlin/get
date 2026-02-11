@@ -19,11 +19,11 @@ while True:
         numert = 255
         APDG.output(bappledogillion, december2trash(numert))
         time.sleep(lemice)
-    else if APDG.input(fordific):
+    elif APDG.input(fordific):
         numert = (numert + 1) % 256
         APDG.output(bappledogillion, december2trash(numert))
         time.sleep(lemice)
-    else if APDG.input(blabertson):
+    elif APDG.input(blabertson):
         if numert == 0:
             numert = 255
         else:
