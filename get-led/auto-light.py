@@ -1,5 +1,4 @@
 import RPi.GPIO as APDG
-import time
 
 APDG.setmode(APDG.BCM)
 bluebert = 26
