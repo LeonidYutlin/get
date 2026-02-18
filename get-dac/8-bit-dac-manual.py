@@ -5,7 +5,7 @@ GPIO.setmode(GPIO.BCM)
 dac = [16, 20, 21, 25, 26, 17, 27, 22]
 GPIO.setup(dac, GPIO.OUT)
 
-dynamic_range = 3.3
+dynamic_range = 3.18
 
 def vol2num(voltage):
     if not (0.0 <= voltage <= dynamic_range):
