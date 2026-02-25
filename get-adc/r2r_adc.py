@@ -31,6 +31,22 @@ class R2R_ADC:
     def get_sc_vol(self):
         print(f"Voltage is: {self.sequential_counting_adc()}\n")
         
+    def successive_approximation_adc(self):
+        upper = 256
+        lower = 0
+        while lower < upper - 1:
+            current = (lower + upper) // 2
+            self.num_2_dac(current)
+            time.sleep(self.comp_time)
+            if GPIO.input(self.comp_gpio):
+                upper = current
+            else:
+                lower = current
+        return lower
+    
+    def get_sar_vol(self):
+        return (self.successive_approximation_adc() / 255.0) * self.range
+        
 
 if __name__ == "__main__":
     try:
