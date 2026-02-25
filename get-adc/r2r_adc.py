@@ -53,9 +53,6 @@ if __name__ == "__main__":
         adc = R2R_ADC(3.183)
         
         while True:
-            try:
-                adc.get_sc_vol()
-            except ValueError:
-                print("Incorrect input! Try again\n")
+            adc.get_sc_vol()
     finally:
         adc.deinit()
