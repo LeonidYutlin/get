@@ -15,4 +15,5 @@ try:
         except ValueError:
             print("smth went wrong wow\n")
 finally:
+    dac.set_vol(0)
     dac.deinit()
