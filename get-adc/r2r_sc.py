@@ -15,5 +15,6 @@ if __name__ == "__main__":
             vols.append(r2r.sequential_counting_adc())
             ts.append(time.time() - t)
         plot.plot_vol_vs_time(ts, vols, max_vol)
+        plot.plot_hist(ts)
     finally:
         r2r.deinit()
