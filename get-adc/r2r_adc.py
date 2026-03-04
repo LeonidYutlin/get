@@ -46,7 +46,65 @@ class R2R_ADC:
                 lower = current
         return lower
     
+    def indian_bise(self):
+        res = 0
+        
+        cmp = 128
+        self.num_2_dac(cmp)
+        time.sleep(self.comp_time)
+        if GPIO.input(self.comp_gpio):
+            res += cmp
+        
+        cmp = 64
+        self.num_2_dac(cmp)
+        time.sleep(self.comp_time)
+        if GPIO.input(self.comp_gpio):
+            res += cmp
+        
+        cmp = 32
+        self.num_2_dac(cmp)
+        time.sleep(self.comp_time)
+        if GPIO.input(self.comp_gpio):
+            res += cmp
+        
+        cmp = 16
+        self.num_2_dac(cmp)
+        time.sleep(self.comp_time)
+        if GPIO.input(self.comp_gpio):
+            res += cmp
+        
+        cmp = 8
+        self.num_2_dac(cmp)
+        time.sleep(self.comp_time)
+        if GPIO.input(self.comp_gpio):
+            res += cmp
+        
+        cmp = 4
+        self.num_2_dac(cmp)
+        time.sleep(self.comp_time)
+        if GPIO.input(self.comp_gpio):
+            res += cmp
+        
+        cmp = 2
+        self.num_2_dac(cmp)
+        time.sleep(self.comp_time)
+        if GPIO.input(self.comp_gpio):
+            res += cmp
+        
+        cmp = 1
+        self.num_2_dac(cmp)
+        time.sleep(self.comp_time)
+        if GPIO.input(self.comp_gpio):
+            res += cmp
+        
+        return res
+    
     def get_sar_vol(self):
+        res = (self.successive_approximation_adc() / 255.0) * self.range
+        print(f"Voltage is: {res}\n")
+        return res
+    
+    def get_indian_vol(self):
         res = (self.successive_approximation_adc() / 255.0) * self.range
         print(f"Voltage is: {res}\n")
         return res
@@ -58,6 +116,7 @@ if __name__ == "__main__":
         
         while True:
             #adc.get_sc_vol()
-            adc.get_sar_vol()
+            #adc.get_sar_vol()
+            adc.get_indian_vol()
     finally:
         adc.deinit()

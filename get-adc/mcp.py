@@ -17,4 +17,4 @@ if __name__ == "__main__":
         plot.plot_vol_vs_time(ts, vols, max_vol)
         plot.plot_hist(ts)
     finally:
-        r2r.deinit()
+        mcp.deinit()
