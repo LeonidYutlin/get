@@ -26,7 +26,7 @@ class MCP3021:
 
 if __name__ == "__main__":
     try:
-        mcp = MCP3021(3.183)
+        mcp = MCP3021(5.15)
         
         while True:
             print(f"Voltage is: {mcp.get_vol()}")
