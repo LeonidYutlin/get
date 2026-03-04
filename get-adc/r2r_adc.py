@@ -29,7 +29,9 @@ class R2R_ADC:
                 return i * self.range / 255
     
     def get_sc_vol(self):
-        print(f"Voltage is: {self.sequential_counting_adc()}\n")
+        res = self.sequential_counting_adc()
+        print(f"Voltage is: {res}\n")
+        return res
         
     def successive_approximation_adc(self):
         upper = 256
@@ -45,7 +47,9 @@ class R2R_ADC:
         return lower
     
     def get_sar_vol(self):
-        return (self.successive_approximation_adc() / 255.0) * self.range
+        res = (self.successive_approximation_adc() / 255.0) * self.range
+        print(f"Voltage is: {res}\n")
+        return res
         
 
 if __name__ == "__main__":
@@ -53,6 +57,7 @@ if __name__ == "__main__":
         adc = R2R_ADC(3.183)
         
         while True:
-            adc.get_sc_vol()
+            #adc.get_sc_vol()
+            adc.get_sar_vol()
     finally:
         adc.deinit()

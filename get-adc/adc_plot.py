@@ -14,7 +14,7 @@ def plot_hist(time):
         hs.append(time[i] - time [i - 1])
     plot.figure(figsize = (10, 6))
     plot.hist(hs)
-    plot.xlim(min(hs), max(hs))
+    #plot.xlim(min(hs), max(hs))
     plot.xlabel("Time, s")
     plot.ylabel("Amnt")
     plot.grid()
