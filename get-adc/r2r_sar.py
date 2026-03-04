@@ -12,7 +12,7 @@ if __name__ == "__main__":
     try:
         t = time.time()
         while time.time() - t <= duration:
-            vols.append(r2r.get_sar_vol())
+            vols.append(r2r.get_indian_vol())
             ts.append(time.time() - t)
         plot.plot_vol_vs_time(ts, vols, max_vol)
         plot.plot_hist(ts)

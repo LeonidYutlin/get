@@ -47,57 +47,57 @@ class R2R_ADC:
         return lower
     
     def indian_bise(self):
-        res = 0
-        
         cmp = 128
         self.num_2_dac(cmp)
         time.sleep(self.comp_time)
         if GPIO.input(self.comp_gpio):
-            res += cmp
+            cmp = 192
+        else:
+            cmp = 64
         
-        cmp = 64
         self.num_2_dac(cmp)
         time.sleep(self.comp_time)
         if GPIO.input(self.comp_gpio):
-            res += cmp
+            cmp += 32
+        else:
+            cmp -= 32
         
-        cmp = 32
         self.num_2_dac(cmp)
         time.sleep(self.comp_time)
         if GPIO.input(self.comp_gpio):
-            res += cmp
+            cmp += 16
+        else:
+            cmp -= 16
         
-        cmp = 16
         self.num_2_dac(cmp)
         time.sleep(self.comp_time)
         if GPIO.input(self.comp_gpio):
-            res += cmp
+            cmp += 8
+        else:
+            cmp -= 8
         
-        cmp = 8
         self.num_2_dac(cmp)
         time.sleep(self.comp_time)
         if GPIO.input(self.comp_gpio):
-            res += cmp
+            cmp += 4
+        else:
+            cmp -= 4
         
-        cmp = 4
         self.num_2_dac(cmp)
         time.sleep(self.comp_time)
         if GPIO.input(self.comp_gpio):
-            res += cmp
-        
-        cmp = 2
+            cmp += 2
+        else:
+            cmp -= 2
+            
         self.num_2_dac(cmp)
         time.sleep(self.comp_time)
         if GPIO.input(self.comp_gpio):
-            res += cmp
+            cmp += 1
+        else:
+            cmp -= 1
         
-        cmp = 1
-        self.num_2_dac(cmp)
-        time.sleep(self.comp_time)
-        if GPIO.input(self.comp_gpio):
-            res += cmp
-        
-        return res
+        return cmp
     
     def get_sar_vol(self):
         res = (self.successive_approximation_adc() / 255.0) * self.range
