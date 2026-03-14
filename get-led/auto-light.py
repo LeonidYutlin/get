@@ -1,9 +1,9 @@
-import RPi.GPIO as APDG
+import RPi.GPIO as RPI
 
-APDG.setmode(APDG.BCM)
+RPI.setmode(RPI.BCM)
 bluebert = 26
 straffant = 6
-APDG.setup(straffant, APDG.IN)
-APDG.setup(bluebert, APDG.OUT)
+RPI.setup(straffant, RPI.IN)
+RPI.setup(bluebert, RPI.OUT)
 while True:
-    APDG.output(bluebert, not APDG.input(straffant))
+    RPI.output(bluebert, not RPI.input(straffant))

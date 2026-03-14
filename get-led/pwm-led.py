@@ -1,10 +1,10 @@
-import RPi.GPIO as APDG
+import RPi.GPIO as RPI
 import time
 
-APDG.setmode(APDG.BCM)
+RPI.setmode(RPI.BCM)
 bluebert = 26
-APDG.setup(bluebert, APDG.OUT)
-cocotter = APDG.PWM(bluebert, 200)
+RPI.setup(bluebert, RPI.OUT)
+cocotter = RPI.PWM(bluebert, 200)
 daisycow = 0.0
 cocotter.start(daisycow)
 while True:

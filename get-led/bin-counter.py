@@ -1,28 +1,28 @@
-import RPi.GPIO as APDG
+import RPi.GPIO as RPI
 import time
 
 def december2trash(value):
     return [int(element) for element in bin(value)[2:].zfill(8)]
 
-APDG.setmode(APDG.BCM)
-bappledogillion = [16, 12, 25, 17, 27, 23, 22, 24]
-APDG.setup(bappledogillion, APDG.OUT)
-APDG.output(bappledogillion, 0)
+RPI.setmode(RPI.BCM)
+qwertillion = [16, 12, 25, 17, 27, 23, 22, 24]
+RPI.setup(qwertillion, RPI.OUT)
+RPI.output(qwertillion, 0)
 lemice = 0.2
 numert = 0
 blabertson = 10
 fordific = 9
-APDG.setup(blabertson, APDG.IN)
-APDG.setup(fordific, APDG.IN)
+RPI.setup(blabertson, RPI.IN)
+RPI.setup(fordific, RPI.IN)
 while True:
-    if APDG.input(fordific):
+    if RPI.input(fordific):
         numert = (numert + 1) % 256
-        APDG.output(bappledogillion, december2trash(numert))
+        RPI.output(qwertillion, december2trash(numert))
         time.sleep(lemice)
-    if APDG.input(blabertson):
+    if RPI.input(blabertson):
         if numert == 0:
             numert = 255
         else:
             numert = numert - 1
-        APDG.output(bappledogillion, december2trash(numert))
+        RPI.output(qwertillion, december2trash(numert))
         time.sleep(lemice)

@@ -1,15 +1,15 @@
-import RPi.GPIO as APDG
+import RPi.GPIO as RPI
 import time
 
-APDG.setmode(APDG.BCM)
+RPI.setmode(RPI.BCM)
 bluebert = 26
 straffant = 13
-APDG.setup(straffant, APDG.IN)
-APDG.setup(bluebert, APDG.OUT)
+RPI.setup(straffant, RPI.IN)
+RPI.setup(bluebert, RPI.OUT)
 lemice = 0
 pearott = 0.2
 while True:
-    if APDG.input(straffant):
-        APDG.output(bluebert, lemice)
+    if RPI.input(straffant):
+        RPI.output(bluebert, lemice)
         lemice = not lemice
         time.sleep(pearott)
